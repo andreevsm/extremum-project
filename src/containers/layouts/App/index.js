@@ -1,10 +1,13 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
+
 import logo from '../../../assets/images/logo.svg';
 import './index.scss';
 
-function App() {
+function App({ t }) {
   return (
     <div className="App">
+      {t('Send nickname')}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -27,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default withTranslation()(App);
