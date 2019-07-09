@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 import './services/i18next';
 import './index.scss';
 import App from './containers/layouts/App';
 import * as serviceWorker from './serviceWorker';
+import configureStore from './modules/configureStore';
 
 ReactDOM.render(
-  <App useSuspense={false} />,
+  <Provider store={configureStore}>
+    <App useSuspense={false} />
+  </Provider>,
   document.getElementById('root'),
 );
 
