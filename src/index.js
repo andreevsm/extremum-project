@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './services/i18next';
-import './index.css';
+import './index.scss';
 import App from './containers/layouts/App';
 import * as serviceWorker from './serviceWorker';
 

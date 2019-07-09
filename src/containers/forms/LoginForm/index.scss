@@ -1,0 +1,50 @@
+@import '../../../styles/variables.scss';
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: $primary;
+}
+
+.login-form {
+  &__label {
+    font-size: 48px;
+    line-height: 48px;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    margin-top: 24px;
+    font-size: 36px;
+    letter-spacing: 0.1em;
+    border: none;
+    text-align: center;
+    color: rgba($primary, 0.6);
+    background-color: transparent;
+  }
+
+  &__button {
+    font-size: 18px;
+    background-color: transparent;
+    letter-spacing: 0.1em;
+    margin-top: 42px;
+    color: rgba($primary, 0.2);
+    cursor: pointer;
+
+    &_disabled {
+      color: rgba($primary, 0.2);
+    }
+
+    &_active {
+      color: $accent;
+    }
+  }
+}
+
+input::placeholder {
+  color: rgba($primary, 0.6);
+  text-align: center;
+  text-transform: uppercase;
+}
