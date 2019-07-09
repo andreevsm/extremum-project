@@ -1,0 +1,9 @@
+.timer {
+  font-size: 96px;
+  letter-spacing: -0.065em;
+  color: #fff;
+
+  @media (max-width: 480px) {
+    font-size: 48px;
+  }
+}

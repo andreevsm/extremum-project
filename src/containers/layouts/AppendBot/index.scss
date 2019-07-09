@@ -1,0 +1,36 @@
+.append-bot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto auto 74px auto;
+
+  @media (max-width: 480px) {
+    margin: auto 20px 25px 19px;
+  }
+}
+
+.append-bot-button-text {
+  margin-top: 60px;
+  font-size: 18px;
+  letter-spacing: 0.315em;
+  color: #fff;
+  cursor: pointer;
+
+  @media (max-width: 480px) {
+    margin-top: 46px;
+  }
+}
+
+.append-bot-description {
+  margin-top: 27vh;
+  max-width: 50vw;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0.125em;
+  color: rgba(255, 255, 255, 0.2);
+
+  @media (max-width: 480px) {
+    max-width: none;
+    letter-spacing: 0.125em;
+  }
+}
