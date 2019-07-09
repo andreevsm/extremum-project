@@ -12,7 +12,7 @@ const Timer = () => {
     return () => {
       clearInterval(intervalId);
     };
-  });
+  }, []);
 
   return <div className="timer">{currentTime.toLocaleTimeString()}</div>;
 };
