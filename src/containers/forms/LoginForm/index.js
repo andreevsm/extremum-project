@@ -14,6 +14,8 @@ const LoginForm = ({
       {t('Specify nickname')}
     </label>
     <input
+      maxLength={12}
+      pattern={/[A-Za-z]/}
       onKeyUp={onChangeInput}
       className="login-form__input"
       placeholder={t('Add here')}
