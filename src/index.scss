@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Transcript Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Transcript Mono'), local('TranscriptMono'), url('./assets/fonts/transcript-mono-medium-pro.ttf') format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,5 +14,5 @@
 }
 
 body {
-  font-family: 'PT Mono', monospace, sans-serif;
+  font-family: 'Transcript Mono', sans-serif;
 }
