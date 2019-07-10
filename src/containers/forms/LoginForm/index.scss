@@ -1,18 +1,21 @@
-@import '../../../styles/variables.scss';
+@import '../../../assets/styles/variables.scss';
 
-.root {
+.login-form {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   color: $primary;
-}
 
-.login-form {
   &__label {
     font-size: 48px;
     line-height: 48px;
     text-transform: uppercase;
+
+    @media (max-width: 480px) {
+      font-size: 36px;
+      line-height: 36px;
+    }
   }
 
   &__input {
@@ -20,9 +23,15 @@
     font-size: 36px;
     letter-spacing: 0.1em;
     border: none;
+    width: 100%;
     text-align: center;
     color: rgba($primary, 0.6);
     background-color: transparent;
+
+    @media (max-width: 480px) {
+      font-size: 24px;
+      line-height: 24px;
+    }
   }
 
   &__button {
@@ -47,4 +56,9 @@ input::placeholder {
   color: rgba($primary, 0.6);
   text-align: center;
   text-transform: uppercase;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 24px;
+  }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Timer from '../Timer';
+import Timer from '../../blocks/Timer';
 import './index.scss';
 
 const AppendBot = () => (
