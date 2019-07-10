@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { ROUTES } from '../../../constants';
 import AppendBot from '../AppendBot';
 import LoginForm from '../../forms/LoginForm';
+import Game from '../../pages/Game';
 import './index.scss';
 
 const App = () => (
@@ -11,6 +12,7 @@ const App = () => (
     <BrowserRouter>
       <Route exact path={ROUTES.INITIAL} component={AppendBot} />
       <Route path={ROUTES.LOGIN} component={LoginForm} />
+      <Route path={ROUTES.GAME} component={Game} />
     </BrowserRouter>
   </div>
 );
