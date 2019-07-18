@@ -1,7 +1,9 @@
 {
+  "ru": "Ru",
+  "en": "En",
   "Welcome": "Hello my friend",
   "Click here": "Click here",
-  "Add bot": "Add our bot to go further and get to the secret level.",
+  "Add bot": "Add our bot to progress further and get to the secret level",
   "Specify nickname": "Specify the nickname",
   "Add here": "Add here",
   "We need nickname": "We need your nickname to give you something",

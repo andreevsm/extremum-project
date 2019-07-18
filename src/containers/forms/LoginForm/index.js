@@ -14,6 +14,7 @@ const LoginForm = ({
       {t('Specify nickname')}
     </label>
     <input
+      minLength={4}
       maxLength={12}
       pattern={/[A-Za-z]/}
       onKeyUp={onChangeInput}
