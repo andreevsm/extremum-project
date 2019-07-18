@@ -1,9 +1,169 @@
 .game-container {
+  display: flex;
   overflow-y: scroll;
   width: 100vw;
-  height: 100vh;
+  background: #000;
+
+  @media (max-width: 820px) {
+    flex-direction: column;
+  }
 }
 
-.game-item {
-  border: 1px solid rgba(255, 255, 255, 0.14);
+.data-container {
+  display: flex;
+  width: 60vw;
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  flex-wrap: wrap;
+
+  @media (max-width: 820px) {
+    width: 100vw;
+  }
+}
+
+.description-container {
+  display: flex;
+  background: #000;
+  flex-direction: column;
+  width: 40vw;
+  flex: 1;
+
+  @media (max-width: 820px) {
+    width: 100vw;
+    flex-direction: column-reverse;
+  }
+}
+
+.description-block {
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  max-height: 75vh;
+  flex: 1;
+  background-color: #fff;
+  padding: 22px 20px 0 30px;
+}
+
+.elememt-row {
+  display: flex;
+  height: 25vh;
+  width: 60vw;
+
+  @media (max-width: 820px) {
+    width: 100vw;
+    height: 12vh;
+  }
+}
+
+.elememt {
+  height: 25vh;
+  width: 20vw;
+  display: flex;
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+
+  @media (max-width: 820px) {
+    flex-direction: column;
+    width: 33.333vw;
+    height: 12vh;
+  }
+}
+
+.last-element {
+  width: 40vw;
+  height: 25vh;
+  display: flex;
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+
+  @media (max-width: 820px) {
+    width: 100vw;
+    height: 12vh;
+    border-top: none;
+  }
+}
+
+.image-empty {
+  width: 8vw;
+  height: 8vh;
+  margin: auto;
+
+  @media (max-width: 820px) {
+    width: 13vw;
+    height: 6vh;
+  }
+}
+
+.game-timer {
+  font-family: 'Transcript Mono', sans-serif;
+  font-size: 9vh;
+  width: 100%;
+  color: #000;
+
+  @media (max-width: 1280px) {
+    font-size: 7vh;
+  }
+
+  @media (max-width: 840px) {
+    font-size: 7vh;
+  }
+}
+
+.info-title {
+  font-family: 'Transcript Mono', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: rgba(6, 6, 6, 0.2);
+  margin-top: 20px;
+}
+
+.info-description {
+  font-family: 'Transcript Mono', sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  color: #060606;
+  margin-top: 12px;
+}
+
+.entities-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 45px;
+
+  :first {
+    margin-top: 85px;
+  }
+}
+
+.entity-block {
+  flex: 1;
+}
+
+.entity-title {
+  font-family: 'Transcript Mono', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: rgba(6, 6, 6, 0.5);
+
+  @media (max-width: 400px) {
+    font-size: 14px;
+  }
+}
+
+.entity-val {
+  font-family: 'Transcript Mono', sans-serif;
+  font-size: 36px;
+  line-height: 36px;
+  letter-spacing: 0.02em;
+  color: #060606;
+  margin-top: 10px;
+}
+
+.footer-text {
+  font-family: 'Transcript Mono', sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  color: #060606;
+  margin-top: 20px;
 }

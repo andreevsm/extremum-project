@@ -9,18 +9,19 @@ import './index.scss';
 class LoginPage extends React.Component {
   state = {
     nickname: '',
-  }
+  };
 
-  onSubmitForm = (e) => {
+  // eslint-disable-next-line arrow-parens
+  onSubmitForm = e => {
     e.preventDefault();
-    console.log(e.target.value);
-  }
+  };
 
-  onChangeInput = (e) => {
+  // eslint-disable-next-line arrow-parens
+  onChangeInput = e => {
     this.setState({
       nickname: e.target.value,
     });
-  }
+  };
 
   render() {
     const { nickname } = this.state;
@@ -39,12 +40,8 @@ class LoginPage extends React.Component {
           />
         </div>
         <div className="login-page__footer">
-          {!nickname
-            && t('We need nickname')
-          }
-          {nickname
-            && t('Send nickname')
-          }
+          {!nickname && t('We need nickname')}
+          {nickname && t('Send nickname')}
         </div>
       </div>
     );
