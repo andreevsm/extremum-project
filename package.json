@@ -20,6 +20,7 @@
     "react-dom": "^16.8.6",
     "react-flexbox-grid": "^2.1.2",
     "react-i18next": "^10.11.4",
+    "react-modal": "^3.9.1",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
@@ -40,6 +41,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://51.83.138.44:654",
   "browserslist": {
     "production": [
       ">0.2%",
