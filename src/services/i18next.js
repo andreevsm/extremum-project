@@ -24,7 +24,7 @@ i18n
       ru: {
         translation: ru,
       },
-      en: {
+      eng: {
         translation: en,
       },
     },

@@ -4,11 +4,7 @@
   font-size: 96px;
   color: $primary;
 
-  @media (max-width: 480px) {
-    font-size: 48px;
-  }
-
-  @media (max-height: 480px) {
+  @media (max-width: 680px) {
     font-size: 48px;
   }
 }

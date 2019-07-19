@@ -25,8 +25,8 @@ const LanguageChanger = ({
       </button>
       <button
         type="button"
-        onClick={() => setLanguage('en')}
-        style={i18n.language === 'en' ? { color: 'white' } : null}
+        onClick={() => setLanguage('eng')}
+        style={i18n.language === 'eng' ? { color: 'white' } : null}
         className="language-changer__button"
       >
         {t('en')}
