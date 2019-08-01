@@ -1,8 +1,8 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { sagaMiddleware } from '../modules/configureStore';
 
 const useSaga = (saga, inputs) => {
-  React.useEffect(() => {
+  useEffect(() => {
     const task = sagaMiddleware.run(saga);
 
     return () => {

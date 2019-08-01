@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState } from 'react';
 import { withTranslation } from 'react-i18next';
 
 import { compose } from '../../../utils/compose';
@@ -11,20 +11,12 @@ const AddBot = ({ t, i18n }) => {
   const [isIframeShown, setIsIframeShown] = useState(false);
   const [botSteamId, setBotSteamId] = useState('');
 
-  useEffect(
-    () => () => {
-      setBotSteamId('');
-      setIsIframeShown(false);
-    },
-    [setBotSteamId, setIsIframeShown],
-  );
-
   const onAddBot = useCallback(() => {
     let lang = 'eng';
 
     if (
-      i18n.language.toLowerCase() === 'ru' ||
-      i18n.language.toLowerCase() === 'ru-ru'
+      i18n.language.toLowerCase() === 'ru'
+      || i18n.language.toLowerCase() === 'ru-ru'
     ) {
       lang = 'ru';
     }

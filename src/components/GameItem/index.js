@@ -1,4 +1,9 @@
-import React, { useState, useCallback } from 'react';
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+} from 'react';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
@@ -138,8 +143,8 @@ const GameItem = ({
     let lang = 'eng';
 
     if (
-      i18n.language.toLowerCase() === 'ru' ||
-      i18n.language.toLowerCase() === 'ru-ru'
+      i18n.language.toLowerCase() === 'ru'
+      || i18n.language.toLowerCase() === 'ru-ru'
     ) {
       lang = 'ru';
     }
@@ -160,7 +165,7 @@ const GameItem = ({
       .catch(error => alert(error));
   }, [i18n, setIsIframeShown, setBotSteamId]);
 
-  const onGameItemClick = React.useCallback(() => {
+  const onGameItemClick = useCallback(() => {
     if (!isOpen) {
       onClick(id);
     } else if (isLogoGameItem) {
@@ -175,7 +180,7 @@ const GameItem = ({
     'game-item_last': isLastItem,
   });
 
-  const imageSource = React.useMemo(() => gameItems[getImageName(src)], [src]);
+  const imageSource = useMemo(() => gameItems[getImageName(src)], [src]);
 
   return (
     <div onClick={onGameItemClick} className={gameItemClassNames}>

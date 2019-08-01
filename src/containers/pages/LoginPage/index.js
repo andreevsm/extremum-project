@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import { withTranslation } from 'react-i18next';
 
 import WithLanguageChanger from '../../layouts/WithLanguageHeader';
@@ -11,14 +11,14 @@ import { normilizeTimeValue } from '../../../utils/functions';
 
 import './index.scss';
 
-class LoginPage extends React.Component {
+class LoginPage extends Component {
   state = {
     nickname: '',
     error: 0,
     isNicknameAdded: false,
   };
 
-  onSubmitForm = nickname => {
+  onSubmitForm = (nickname) => {
     fetch('https://ourway.gg/api/username/', {
       method: 'POST',
       body: JSON.stringify({
@@ -26,7 +26,7 @@ class LoginPage extends React.Component {
       }),
     })
       .then(res => res.json())
-      .then(data => {
+      .then((data) => {
         if (data.error) {
           this.setState({
             error: data.error.code,
@@ -40,14 +40,12 @@ class LoginPage extends React.Component {
           });
         }
       })
-      .catch(error =>
-        this.setState({
-          error: error.code,
-        }),
-      );
+      .catch(error => this.setState({
+        error: error.code,
+      }));
   };
 
-  onChangeInput = e => {
+  onChangeInput = (e) => {
     this.setState({
       nickname: e.target.value,
     });
@@ -80,11 +78,11 @@ class LoginPage extends React.Component {
               />
             )}
             {isNicknameAdded && (
-              <React.Fragment>
+              <Fragment>
                 <div className="login-page__nickname">{nickname}</div>
                 <Socials />
                 <div className="login-page__subscribe">{t('Well done')}</div>
-              </React.Fragment>
+              </Fragment>
             )}
           </div>
           {!isNicknameAdded && (

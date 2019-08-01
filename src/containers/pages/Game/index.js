@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
-import React, { useCallback, useState, useReducer, useMemo } from 'react';
+import React, {
+  useCallback, useState, useReducer, useMemo,
+} from 'react';
 import * as R from 'ramda';
 import { handleActions, createAction } from 'redux-actions';
 import { withTranslation } from 'react-i18next';
@@ -24,12 +26,11 @@ const allTargetsUpdate = createAction('all_targets_update');
 const newUser = createAction('new_user');
 const resetTimer = createAction('reset_timer');
 
-const asyncInitialSocket = () =>
-  fetch('https://ourway.gg/api/targets/')
-    .then(res => res.json())
-    .catch(() => {
-      throw new Error('Internet');
-    });
+const asyncInitialSocket = () => fetch('https://ourway.gg/api/targets/')
+  .then(res => res.json())
+  .catch(() => {
+    throw new Error('Internet');
+  });
 
 const gameReducer = handleActions(
   {
@@ -45,11 +46,9 @@ const gameReducer = handleActions(
       ...state,
       total_clicks: state.total_clicks + 1,
       targets: state.targets
-        .map(target =>
-          target.id === target_id
-            ? { ...target, clicks: target_clicks }
-            : target,
-        )
+        .map(target => (target.id === target_id
+          ? { ...target, clicks: target_clicks }
+          : target))
         .map(gameItemFactory),
     }),
     [allTargetsUpdate]: (state, { payload: { targets, timer } }) => ({
@@ -103,7 +102,7 @@ const Game = ({ t }) => {
   }, [state]);
 
   const onGameItemClick = useCallback(
-    gameItemId => {
+    (gameItemId) => {
       if (!socket || !socket.connected) {
         // Handle socket error
         return;
@@ -126,7 +125,6 @@ const Game = ({ t }) => {
     yield call([socket, socket.open]);
     yield call([socket, socket.emit], 'init', '');
 
-    // TODO: remove if error on initial
     let error = true;
 
     while (error) {
@@ -138,8 +136,6 @@ const Game = ({ t }) => {
         yield delay(3000);
       }
     }
-
-    // ENDTODO
 
     const socketChannel = yield call(createSocketChannel, socket, [
       initialAction.toString(),

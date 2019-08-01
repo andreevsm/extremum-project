@@ -37,14 +37,14 @@ const Timer = ({
     [],
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (initialTimeDifference) {
       setActiveTimer(
         setTimeout(() => {
           setTimerKey(new Date().getTime().toString());
           setEndDate(
-            new Date(Date.now() + initialTimeDifference) ||
-              new Date('2019-07-28T22:00:00'),
+            new Date(Date.now() + initialTimeDifference)
+              || new Date('2019-07-28T22:00:00'),
           );
           resetTimer && resetTimer();
         }, 1000),
@@ -71,8 +71,8 @@ const Timer = ({
               setTimeout(() => {
                 setTimerKey(new Date().getTime().toString());
                 setEndDate(
-                  new Date(Date.now() + initialTimeDifference) ||
-                    new Date('2019-07-28T22:00:00'),
+                  new Date(Date.now() + initialTimeDifference)
+                    || new Date('2019-07-28T22:00:00'),
                 );
               }, 1000),
             );
