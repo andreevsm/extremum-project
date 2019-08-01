@@ -1,169 +1,140 @@
-.game-container {
+@import '../../../assets/styles/variables.scss';
+
+.description {
   display: flex;
-  overflow-y: scroll;
-  width: 100vw;
-  background: #000;
-
-  @media (max-width: 820px) {
-    flex-direction: column;
-  }
-}
-
-.data-container {
-  display: flex;
-  width: 60vw;
-  border: 0.5px solid rgba(255, 255, 255, 0.14);
-  flex-wrap: wrap;
-
-  @media (max-width: 820px) {
-    width: 100vw;
-  }
-}
-
-.description-container {
-  display: flex;
-  background: #000;
+  background: $black;
   flex-direction: column;
   width: 40vw;
   flex: 1;
 
-  @media (max-width: 820px) {
+  @media (max-width: 1024px) {
     width: 100vw;
     flex-direction: column-reverse;
   }
+
+  &:last-child {
+    .game-item {
+      border-bottom: none;
+    }
+  }
+
+  &__main {
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    max-height: 75vh;
+    flex: 1;
+    background-color: $primary;
+    padding: 22px 40px 0 30px;
+    text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      max-height: 100%;
+    }
+  }
+
+  &__info-title {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(6, 6, 6, .2);
+    margin-bottom: 12px;
+    margin-top: 20px;
+    line-height: 18px;
+    text-transform: uppercase;
+  }
+
+  &__info-description {
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    color: #060606;
+  }
+
+  &__title {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(6, 6, 6, 0.5);
+    text-transform: uppercase;
+
+    @media (max-width: 400px) {
+      font-size: 14px;
+    }
+
+    &_forgotten {
+      color: rgba(6, 6, 6, 0.2);
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+
+    &:first {
+      margin-top: 85px;
+    }
+  }
+
+  &__inner {
+    flex: 1;
+  }
+
+  &__value {
+    font-size: 36px;
+    line-height: 36px;
+    letter-spacing: 0.02em;
+    color: #060606;
+    margin-top: 10px;
+
+    &_forgotten {
+      font-size: 14px;
+      line-height: 14px;
+      max-width: 491px;
+      width: 100%;
+      margin-bottom: 40px;
+      word-wrap: break-word;
+
+      @media (max-width: 1024px) {
+        max-width: 100vh;
+      }
+    }
+  }
 }
 
-.description-block {
+.game-page {
   display: flex;
   overflow-y: scroll;
-  flex-direction: column;
-  max-height: 75vh;
-  flex: 1;
-  background-color: #fff;
-  padding: 22px 20px 0 30px;
-}
+  width: 100vw;
+  background: $black;
 
-.elememt-row {
-  display: flex;
-  height: 25vh;
-  width: 60vw;
-
-  @media (max-width: 820px) {
-    width: 100vw;
-    height: 12vh;
-  }
-}
-
-.elememt {
-  height: 25vh;
-  width: 20vw;
-  display: flex;
-  border: 0.5px solid rgba(255, 255, 255, 0.14);
-  cursor: pointer;
-
-  @media (max-width: 820px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
-    width: 33.333vw;
-    height: 12vh;
-  }
-}
-
-.last-element {
-  width: 40vw;
-  height: 25vh;
-  display: flex;
-  border: 0.5px solid rgba(255, 255, 255, 0.14);
-  cursor: pointer;
-
-  @media (max-width: 820px) {
-    width: 100vw;
-    height: 12vh;
-    border-top: none;
-  }
-}
-
-.image-empty {
-  width: 8vw;
-  height: 8vh;
-  margin: auto;
-
-  @media (max-width: 820px) {
-    width: 13vw;
-    height: 6vh;
-  }
-}
-
-.game-timer {
-  font-family: 'Transcript Mono', sans-serif;
-  font-size: 9vh;
-  width: 100%;
-  color: #000;
-
-  @media (max-width: 1280px) {
-    font-size: 7vh;
   }
 
-  @media (max-width: 840px) {
-    font-size: 7vh;
+  .elememt-row:first-of-type {
+    .game-item {
+      border-top: none;
+    }
   }
-}
 
-.info-title {
-  font-family: 'Transcript Mono', sans-serif;
-  font-size: 18px;
-  letter-spacing: 0.02em;
-  color: rgba(6, 6, 6, 0.2);
-  margin-top: 20px;
-}
+  &__game-items {
+    display: flex;
+    width: 60vw;
+    flex-wrap: wrap;
 
-.info-description {
-  font-family: 'Transcript Mono', sans-serif;
-  font-size: 18px;
-  line-height: 18px;
-  letter-spacing: 0.02em;
-  color: #060606;
-  margin-top: 12px;
-}
-
-.entities-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 45px;
-
-  :first {
-    margin-top: 85px;
+    @media (max-width: 1024px) {
+      width: 100vw;
+    }
   }
-}
 
-.entity-block {
-  flex: 1;
-}
+  &__row {
+    display: flex;
+    height: 25vh;
+    width: 60vw;
 
-.entity-title {
-  font-family: 'Transcript Mono', sans-serif;
-  font-size: 18px;
-  letter-spacing: 0.02em;
-  color: rgba(6, 6, 6, 0.5);
-
-  @media (max-width: 400px) {
-    font-size: 14px;
+    @media (max-width: 1024px) {
+      width: 100vw;
+      height: 12vh;
+    }
   }
-}
-
-.entity-val {
-  font-family: 'Transcript Mono', sans-serif;
-  font-size: 36px;
-  line-height: 36px;
-  letter-spacing: 0.02em;
-  color: #060606;
-  margin-top: 10px;
-}
-
-.footer-text {
-  font-family: 'Transcript Mono', sans-serif;
-  font-size: 18px;
-  line-height: 18px;
-  letter-spacing: 0.02em;
-  color: #060606;
-  margin-top: 20px;
 }

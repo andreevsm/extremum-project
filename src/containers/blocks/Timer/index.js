@@ -1,43 +1,87 @@
-import React from 'react';
-import './index.scss';
+import React, { useState, useEffect } from 'react';
+import { withRouter, Redirect } from 'react-router-dom';
+import classnames from 'classnames';
+import Countdown from 'react-countdown-now';
 
-const Timer = ({ className }) => {
-  const [currentTime, setCurrentTime] = React.useState('');
+import './index.scss';
+import { ROUTES } from '../../../constants';
+
+const Timer = ({
+  isNicknameAdded,
+  isGameTimer = false,
+  withRedirect = true,
+  history,
+  initialTimeDifference,
+  repeat = false,
+  resetTimer,
+  ...rest
+}) => {
+  const timerClassNames = classnames('timer', {
+    game: isGameTimer,
+    'timer_is-nickname-added': isNicknameAdded,
+  });
+
+  const [timerKey, setTimerKey] = useState(new Date().getTime().toString());
+
+  const [endDate, setEndDate] = useState(
+    initialTimeDifference
+      ? new Date().getTime() + initialTimeDifference
+      : new Date(Date.parse(new Date('2019-07-28T19:50:00.000Z'))),
+  );
+  const [activeTimer, setActiveTimer] = useState(null);
+
+  useEffect(
+    () => () => {
+      activeTimer && clearTimeout(activeTimer);
+    },
+    [],
+  );
 
   React.useEffect(() => {
-    updateClock(setCurrentTime);
-    const timerId = setInterval(() => updateClock(setCurrentTime), 1000);
+    if (initialTimeDifference) {
+      setActiveTimer(
+        setTimeout(() => {
+          setTimerKey(new Date().getTime().toString());
+          setEndDate(
+            new Date(Date.now() + initialTimeDifference) ||
+              new Date('2019-07-28T22:00:00'),
+          );
+          resetTimer && resetTimer();
+        }, 1000),
+      );
+    }
+  }, [initialTimeDifference]);
 
-    return () => {
-      clearInterval(timerId);
-    };
-  }, []);
+  if (new Date().getTime() >= endDate.getTime() && withRedirect) {
+    return <Redirect to={ROUTES.GAME} />;
+  }
 
-  return <div className={`timer ${className}`}>{currentTime}</div>;
-};
+  return (
+    <div className={timerClassNames}>
+      <Countdown
+        key={timerKey}
+        date={endDate}
+        onComplete={() => {
+          if (withRedirect) {
+            history.push(ROUTES.GAME);
+          }
 
-export default Timer;
-
-// eslint-disable-next-line arrow-parens
-const getTimeRemaining = endTime => {
-  const time = Date.parse(endTime) - Date.parse(new Date());
-  return {
-    seconds: Math.floor((time / 1000) % 60),
-    minutes: Math.floor((time / 1000 / 60) % 60),
-    hours: Math.floor((time / (1000 * 60 * 60)) % 24),
-    days: Math.floor(time / (1000 * 60 * 60 * 24)),
-  };
-};
-
-// eslint-disable-next-line arrow-parens
-const updateClock = setCurrentTime => {
-  const timer = new Date(
-    Date.parse(new Date('2019-07-08')) + 15 * 24 * 60 * 60 * 1000,
+          if (repeat) {
+            setActiveTimer(
+              setTimeout(() => {
+                setTimerKey(new Date().getTime().toString());
+                setEndDate(
+                  new Date(Date.now() + initialTimeDifference) ||
+                    new Date('2019-07-28T22:00:00'),
+                );
+              }, 1000),
+            );
+          }
+        }}
+        {...rest}
+      />
+    </div>
   );
-  const time = getTimeRemaining(timer);
-  setCurrentTime(
-    `${time.days}:${`0${time.hours}`.slice(-2)}:${`0${time.minutes}`.slice(
-      -2,
-    )}:${`0${time.seconds}`.slice(-2)}`,
-  );
 };
+
+export default withRouter(Timer);

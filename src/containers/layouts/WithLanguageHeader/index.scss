@@ -1,0 +1,9 @@
+@import '../../../assets/styles/variables.scss';
+
+.with-language-changer {
+  background: $black;
+
+  &__block {
+    padding-right: 40px;
+  }
+}

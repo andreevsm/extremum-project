@@ -4,3 +4,7 @@ export const ROUTES = {
   GAME: '/game',
   SOCIALS: '/socials',
 };
+
+export const cookies = {
+  user: 'usr',
+};

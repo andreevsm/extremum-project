@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" content="width=device-width, user-scalable=no" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -10,28 +10,82 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Extremum</title>
+    <title>OURWAY</title>
+    <meta name="description" content="Ourway" />
+    <meta name="keywords" content="Ourway" />
   </head>
   <body>
     <!-- Facebook Pixel Code -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '473279636803059'); 
+      !(function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        'script',
+        'https://connect.facebook.net/en_US/fbevents.js',
+      );
+      fbq('init', '473279636803059');
       fbq('track', 'PageView');
     </script>
     <noscript>
-      <img height="1" width="1" 
-      src="https://www.facebook.com/tr?id=473279636803059&ev=PageView
-      &noscript=1"/>
+      <img
+        height="1"
+        width="1"
+        src="https://www.facebook.com/tr?id=473279636803059&ev=PageView
+      &noscript=1"
+      />
     </noscript>
     <!-- End Facebook Pixel Code -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-144269296-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-144269296-1');
+    </script>
+
+    <script type="text/javascript">
+      !(function() {
+        var t = document.createElement('script');
+        (t.type = 'text/javascript'),
+          (t.async = !0),
+          (t.src = 'https://vk.com/js/api/openapi.js?161'),
+          (t.onload = function() {
+            VK.Retargeting.Init('VK-RTRG-387772-cLA4Z'), VK.Retargeting.Hit();
+          }),
+          document.head.appendChild(t);
+      })();
+    </script>
+    <noscript
+      ><img
+        src="https://vk.com/rtrg?p=VK-RTRG-387772-cLA4Z"
+        style="position:fixed; left:-999px;"
+        alt=""
+    /></noscript>
 
     <div id="root"></div>
   </body>

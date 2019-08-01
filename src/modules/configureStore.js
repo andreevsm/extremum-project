@@ -14,7 +14,7 @@ function* rootSaga() {
   }
 }
 
-const sagaMiddleware = createSagaMiddleware();
+export const sagaMiddleware = createSagaMiddleware();
 
 const configureStore = createStore(
   rootReducer,

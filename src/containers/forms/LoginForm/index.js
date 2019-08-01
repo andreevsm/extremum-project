@@ -1,5 +1,9 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import classnames from 'classnames';
+
+import { compose } from '../../../utils/compose';
+import ValidationMessages from './ValidationMessages';
 
 import './index.scss';
 
@@ -8,31 +12,46 @@ const LoginForm = ({
   onSubmitForm,
   onChangeInput,
   nickname,
-}) => (
-  <form className="login-form" onSubmit={onSubmitForm}>
-    <label className="login-form__label" htmlFor="nickname">
-      {t('Specify nickname')}
-    </label>
-    <input
-      minLength={4}
-      maxLength={12}
-      pattern={/[A-Za-z]/}
-      onKeyUp={onChangeInput}
-      className="login-form__input"
-      placeholder={t('Add here')}
-      id="nickname"
-      type="text"
-    />
-    <button
-      disabled={!nickname.length}
-      type="submit"
-      // eslint-disable-next-line operator-linebreak
-      className={`login-form__button ${nickname.length &&
-        'login-form__button_active'}`}
-    >
-      {t('Send')}
-    </button>
-  </form>
-);
+  error,
+}) => {
+  const buttonClassNames = classnames({
+    'login-form__button': true,
+    'login-form__button_active': nickname.length,
+  });
 
-export default withTranslation()(LoginForm);
+  return (
+    <form
+      className="login-form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmitForm(nickname);
+        return false;
+      }}
+    >
+      <label className="login-form__label" htmlFor="nickname">
+        {t('Specify nickname')}
+      </label>
+      <input
+        minLength={4}
+        maxLength={12}
+        onKeyUp={onChangeInput}
+        className="login-form__input"
+        placeholder={t('Add here')}
+        id="nickname"
+        type="text"
+      />
+      {!!error && <ValidationMessages errorCode={error} />}
+      <button
+        disabled={!nickname.length}
+        type="submit"
+        className={buttonClassNames}
+      >
+        {t('Send')}
+      </button>
+    </form>
+  );
+};
+
+export default compose(
+  withTranslation(),
+)(LoginForm);
